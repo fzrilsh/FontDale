@@ -11,30 +11,55 @@
     margin-bottom: 0.6rem;
 }
 
+/* ============================================================
+   VARIANT B — DESIGN TOKENS
+   Changes from Variant A:
+   · Gold accent → darker bronze / rose-gold
+   · Footer background → near-black charcoal
+   · Rounded corners on cards, inputs, buttons
+   ============================================================ */
 :root {
     --color-white: #FFFFFF;
-    --color-off-white: #F8F6F2;
-    --color-surface: #F2EFE9;
-    --color-gold: #C9A84C;
-    --color-gold-light: #E8D5A3;
-    --color-gold-dark: #A07830;
+    --color-off-white: #F7F5F2;
+    --color-surface: #EEE9E2;
+
+    /* Bronze / Rose-Gold palette (was gold #C9A84C) */
+    --color-gold: #956B3A;
+    --color-gold-light: #D4A574;
+    --color-gold-dark: #6B4524;
+
     --color-dark: #1A1814;
     --color-dark-soft: #2E2B26;
     --color-mid: #6B6560;
     --color-border: #DDD8CE;
+
+    /* Charcoal footer (was #1A1814, now near-black) */
+    --color-footer-bg: #0C0B09;
+
     --font-display: 'Cormorant Garamond', Georgia, serif;
     --font-body: 'Jost', 'Segoe UI', sans-serif;
+
     --space-xs: 0.5rem;
     --space-sm: 1rem;
     --space-md: 2rem;
     --space-lg: 4rem;
     --space-xl: 6rem;
+
     --transition-fast: 0.2s ease;
     --transition-mid: 0.35s ease;
-    --shadow-card: 0 4px 20px rgba(26, 24, 20, 0.08);
-    --shadow-nav: 0 2px 20px rgba(26, 24, 20, 0.06);
+
+    --shadow-card: 0 4px 24px rgba(26, 24, 20, 0.10);
+    --shadow-nav:  0 2px 20px rgba(26, 24, 20, 0.06);
+
+    /* Radius tokens (Variant A had none — all sharp) */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
 }
 
+/* ============================================================
+   RESET
+   ============================================================ */
 *,
 *::before,
 *::after {
@@ -84,21 +109,10 @@ h5 {
     color: var(--color-dark);
 }
 
-h1 {
-    font-size: clamp(2.4rem, 6vw, 4.5rem);
-}
-
-h2 {
-    font-size: clamp(1.8rem, 4vw, 3rem);
-}
-
-h3 {
-    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
-}
-
-h4 {
-    font-size: 1.2rem;
-}
+h1 { font-size: clamp(2.4rem, 6vw, 4.5rem); }
+h2 { font-size: clamp(1.8rem, 4vw, 3rem); }
+h3 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); }
+h4 { font-size: 1.2rem; }
 
 p {
     font-size: 1rem;
@@ -106,6 +120,9 @@ p {
     line-height: 1.8;
 }
 
+/* ============================================================
+   TYPOGRAPHY UTILITIES
+   ============================================================ */
 .text-gold {
     color: var(--color-gold);
 }
@@ -141,6 +158,9 @@ p {
     margin: var(--space-sm) auto 0;
 }
 
+/* ============================================================
+   LAYOUT
+   ============================================================ */
 .container {
     width: 90%;
     max-width: 1200px;
@@ -161,6 +181,9 @@ p {
     background-color: var(--color-surface);
 }
 
+/* ============================================================
+   BUTTONS — Variant B: Outline by default, fills on hover
+   ============================================================ */
 .btn {
     display: inline-block;
     font-family: var(--font-body);
@@ -170,21 +193,25 @@ p {
     text-transform: uppercase;
     padding: 0.9rem 2.4rem;
     border: 1.5px solid var(--color-gold);
-    background-color: var(--color-gold);
-    color: var(--color-white);
+    background-color: transparent;
+    color: var(--color-gold);
+    border-radius: var(--radius-sm);
     cursor: pointer;
     transition: background-color var(--transition-fast),
-        color var(--transition-fast),
-        border-color var(--transition-fast);
+                color var(--transition-fast),
+                border-color var(--transition-fast);
 }
 
 .btn:hover,
 .btn:focus {
-    background-color: var(--color-gold-dark);
-    border-color: var(--color-gold-dark);
+    background-color: var(--color-gold);
+    border-color: var(--color-gold);
+    color: var(--color-white);
     outline: none;
 }
 
+/* --outline is now functionally identical to default btn in Variant B,
+   kept for backward-compatibility with any existing markup */
 .btn--outline {
     background-color: transparent;
     color: var(--color-gold);
@@ -196,8 +223,9 @@ p {
     color: var(--color-white);
 }
 
+/* Light variant used on dark backgrounds */
 .btn--light {
-    border-color: var(--color-white);
+    border-color: rgba(255, 255, 255, 0.7);
     background-color: transparent;
     color: var(--color-white);
 }
@@ -205,16 +233,20 @@ p {
 .btn--light:hover,
 .btn--light:focus {
     background-color: var(--color-white);
+    border-color: var(--color-white);
     color: var(--color-dark);
 }
 
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
 .site-header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    background-color: rgba(255, 255, 255, 0.96);
+    background-color: rgba(255, 255, 255, 0.97);
     border-bottom: 1px solid var(--color-border);
     box-shadow: var(--shadow-nav);
 }
@@ -331,8 +363,11 @@ p {
     padding-top: 72px;
 }
 
+/* ============================================================
+   FOOTER — Variant B: near-black charcoal background
+   ============================================================ */
 .site-footer {
-    background-color: var(--color-dark);
+    background-color: var(--color-footer-bg);
     color: rgba(255, 255, 255, 0.6);
     padding: var(--space-lg) 0 var(--space-md);
 }
@@ -366,7 +401,7 @@ p {
 .footer-tagline {
     font-size: 0.85rem;
     line-height: 1.6;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.45);
 }
 
 .footer-col h4 {
@@ -385,7 +420,7 @@ p {
 
 .footer-links a {
     font-size: 0.88rem;
-    color: rgba(255, 255, 255, 0.55);
+    color: rgba(255, 255, 255, 0.45);
     transition: color var(--transition-fast);
 }
 
@@ -395,7 +430,7 @@ p {
 
 .footer-info p {
     font-size: 0.88rem;
-    color: rgba(255, 255, 255, 0.55);
+    color: rgba(255, 255, 255, 0.45);
     margin-bottom: 0.4rem;
     line-height: 1.6;
 }
@@ -408,7 +443,7 @@ p {
 }
 
 .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
     padding-top: var(--space-md);
     display: flex;
     align-items: center;
@@ -419,7 +454,7 @@ p {
 
 .footer-bottom p {
     font-size: 0.78rem;
-    color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.25);
 }
 
 .footer-social {
@@ -433,8 +468,9 @@ p {
     justify-content: center;
     width: 34px;
     height: 34px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: rgba(255, 255, 255, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-sm);
+    color: rgba(255, 255, 255, 0.4);
     font-size: 0.85rem;
     transition: border-color var(--transition-fast), color var(--transition-fast);
 }
@@ -444,10 +480,12 @@ p {
     color: var(--color-gold);
 }
 
+/* ============================================================
+   PAGE BANNER
+   ============================================================ */
 .page-banner {
     background-color: var(--color-dark);
     background-image: url('../images/pattern.png');
-    /* background-size: 300px 300px; */
     background-repeat: no-repeat;
     background-size: contain;
     background-position: 50% 0%;
@@ -460,7 +498,7 @@ p {
     content: '';
     position: absolute;
     inset: 0;
-    background-color: rgba(26, 24, 20, 0.82);
+    background-color: rgba(12, 11, 9, 0.86);
 }
 
 .page-banner-content {
@@ -479,6 +517,9 @@ p {
     margin: var(--space-sm) auto 0;
 }
 
+/* ============================================================
+   HERO
+   ============================================================ */
 .hero {
     position: relative;
     min-height: 100vh;
@@ -504,8 +545,8 @@ p {
     position: absolute;
     inset: 0;
     background: linear-gradient(105deg,
-            rgba(26, 24, 20, 0.78) 40%,
-            rgba(26, 24, 20, 0.3) 100%);
+            rgba(12, 11, 9, 0.82) 40%,
+            rgba(12, 11, 9, 0.32) 100%);
     z-index: 1;
 }
 
@@ -540,6 +581,9 @@ p {
     gap: 1rem;
 }
 
+/* ============================================================
+   INFO STRIP
+   ============================================================ */
 .info-strip {
     background-color: var(--color-dark-soft);
     padding: var(--space-md) 0;
@@ -584,6 +628,9 @@ p {
     line-height: 1.6;
 }
 
+/* ============================================================
+   INTRO SECTION
+   ============================================================ */
 .intro-grid {
     display: flex;
     flex-wrap: wrap;
@@ -613,6 +660,7 @@ p {
     width: 100%;
     height: 420px;
     object-fit: cover;
+    border-radius: var(--radius-md);
 }
 
 .intro-visual::before {
@@ -623,9 +671,13 @@ p {
     right: -20px;
     bottom: -20px;
     border: 1.5px solid var(--color-gold);
+    border-radius: var(--radius-md);
     z-index: -1;
 }
 
+/* ============================================================
+   FEATURE CARDS — Variant B: rounded corners
+   ============================================================ */
 .features-grid {
     display: flex;
     flex-wrap: wrap;
@@ -639,6 +691,7 @@ p {
     padding: var(--space-md);
     background-color: var(--color-white);
     border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
     text-align: center;
     transition: box-shadow var(--transition-mid), transform var(--transition-mid);
 }
@@ -663,30 +716,35 @@ p {
     font-size: 0.88rem;
 }
 
+/* ============================================================
+   TENANT CARDS — Variant B: HORIZONTAL layout (image left, text right)
+   ============================================================ */
 .tenant-grid {
     display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-md);
-    justify-content: center;
+    flex-direction: column;
+    gap: var(--space-sm);
 }
 
 .tenant-card {
-    flex: 1 1 260px;
-    max-width: 320px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
     background-color: var(--color-white);
     border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
     overflow: hidden;
     transition: box-shadow var(--transition-mid), transform var(--transition-mid);
 }
 
 .tenant-card:hover {
-    box-shadow: 0 8px 32px rgba(26, 24, 20, 0.12);
-    transform: translateY(-5px);
+    box-shadow: 0 8px 32px rgba(26, 24, 20, 0.11);
+    transform: translateY(-3px);
 }
 
 .tenant-card-image {
-    width: 100%;
-    height: 220px;
+    width: 280px;
+    min-width: 280px;
+    flex-shrink: 0;
     overflow: hidden;
 }
 
@@ -695,6 +753,7 @@ p {
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
+    display: block;
 }
 
 .tenant-card:hover .tenant-card-image img {
@@ -702,7 +761,11 @@ p {
 }
 
 .tenant-card-body {
-    padding: 1.4rem;
+    flex: 1;
+    padding: 2rem 2.4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .tenant-category {
@@ -716,22 +779,22 @@ p {
 }
 
 .tenant-card-body h3 {
-    font-size: 1.15rem;
-    margin-bottom: 0.4rem;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
     color: var(--color-dark);
 }
 
 .tenant-card-body p {
-    font-size: 0.85rem;
+    font-size: 0.88rem;
     color: var(--color-mid);
-    line-height: 1.65;
+    line-height: 1.7;
 }
 
 .tenant-location {
     display: flex;
     align-items: center;
     gap: 0.4rem;
-    margin-top: 0.8rem;
+    margin-top: 0.9rem;
     font-size: 0.78rem;
     color: var(--color-mid);
 }
@@ -741,6 +804,9 @@ p {
     font-size: 0.75rem;
 }
 
+/* ============================================================
+   EVENTS
+   ============================================================ */
 .events-list {
     display: flex;
     flex-direction: column;
@@ -753,6 +819,7 @@ p {
     gap: var(--space-sm);
     background-color: var(--color-white);
     border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
     overflow: hidden;
     transition: box-shadow var(--transition-mid);
 }
@@ -808,6 +875,7 @@ p {
     text-transform: uppercase;
     padding: 0.2rem 0.7rem;
     border: 1px solid currentColor;
+    border-radius: var(--radius-sm);
     margin-bottom: 0.6rem;
 }
 
@@ -852,6 +920,9 @@ p {
     font-size: 0.75rem;
 }
 
+/* ============================================================
+   ABOUT PAGE
+   ============================================================ */
 .about-intro {
     display: flex;
     flex-wrap: wrap;
@@ -880,8 +951,10 @@ p {
     width: 100%;
     height: 380px;
     object-fit: cover;
+    border-radius: var(--radius-md);
 }
 
+/* TIMELINE */
 .timeline {
     position: relative;
     max-width: 720px;
@@ -932,6 +1005,7 @@ p {
     font-size: 0.9rem;
 }
 
+/* VALUES */
 .values-grid {
     display: flex;
     flex-wrap: wrap;
@@ -945,6 +1019,7 @@ p {
     max-width: 260px;
     padding: var(--space-md);
     border-top: 2px solid var(--color-gold);
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
     background-color: var(--color-white);
 }
 
@@ -959,12 +1034,14 @@ p {
     font-size: 0.85rem;
 }
 
+/* FOUNDER BLOCK */
 .founder-block {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-md);
     align-items: center;
-    background-color: var(--color-dark);
+    background-color: var(--color-footer-bg);
+    border-radius: var(--radius-lg);
     padding: var(--space-lg);
 }
 
@@ -1019,6 +1096,9 @@ p {
     line-height: 1.7;
 }
 
+/* ============================================================
+   NEWSLETTER PAGE — Variant B: rounded card
+   ============================================================ */
 .newsletter-section {
     background-color: var(--color-off-white);
 }
@@ -1028,6 +1108,7 @@ p {
     margin: 0 auto;
     background-color: var(--color-white);
     border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
     padding: var(--space-lg) var(--space-md);
 }
 
@@ -1038,18 +1119,22 @@ p {
     height: 2px;
     background-color: var(--color-gold);
     margin-bottom: var(--space-md);
+    border-radius: 1px;
 }
 
 .newsletter-card h2 {
     margin-bottom: 0.5rem;
 }
 
-.newsletter-card>p {
+.newsletter-card > p {
     font-size: 0.92rem;
     color: var(--color-mid);
     margin-bottom: var(--space-md);
 }
 
+/* ============================================================
+   FORMS — Variant B: rounded inputs
+   ============================================================ */
 .form-group {
     margin-bottom: 1.4rem;
     position: relative;
@@ -1081,6 +1166,7 @@ p {
     color: var(--color-dark);
     background-color: var(--color-white);
     border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
     padding: 0.75rem 1rem;
     outline: none;
     transition: border-color var(--transition-fast);
@@ -1088,8 +1174,9 @@ p {
     appearance: none;
 }
 
+/* Updated SVG arrow color to match new bronze #956B3A */
 .form-group select {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C9A84C' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23956B3A' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 1rem center;
     padding-right: 2.5rem;
@@ -1116,6 +1203,7 @@ p {
     display: block;
 }
 
+/* TOPIC RADIO BUTTONS */
 .radio-group {
     display: flex;
     flex-wrap: wrap;
@@ -1176,10 +1264,12 @@ p {
     padding: 1rem;
 }
 
+/* FORM SUCCESS */
 .form-success {
     display: none;
     background-color: #f0faf5;
     border: 1px solid #a8d5ba;
+    border-radius: var(--radius-md);
     padding: var(--space-sm) var(--space-md);
     margin-top: var(--space-md);
     text-align: center;
@@ -1201,6 +1291,9 @@ p {
     display: block;
 }
 
+/* ============================================================
+   SCROLL-TO-TOP BUTTON — Variant B: rounded
+   ============================================================ */
 .scroll-top {
     position: fixed;
     bottom: 2rem;
@@ -1214,6 +1307,7 @@ p {
     justify-content: center;
     font-size: 0.85rem;
     border: none;
+    border-radius: var(--radius-sm);
     cursor: pointer;
     opacity: 0;
     pointer-events: none;
@@ -1230,18 +1324,14 @@ p {
     background-color: var(--color-gold-dark);
 }
 
+/* ============================================================
+   RESPONSIVE — max-width 540px
+   Tenant cards restack to vertical on mobile.
+   ============================================================ */
 @media screen and (max-width: 540px) {
-    h1 {
-        font-size: 2.2rem;
-    }
-
-    h2 {
-        font-size: 1.6rem;
-    }
-
-    h3 {
-        font-size: 1.15rem;
-    }
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.6rem; }
+    h3 { font-size: 1.15rem; }
 
     .nav-list {
         display: none;
@@ -1298,11 +1388,22 @@ p {
         text-align: center;
     }
 
+    /* --- Tenant cards: restack image on top, text below on mobile --- */
     .tenant-card {
-        flex: 1 1 100%;
-        max-width: 100%;
+        flex-direction: column;
     }
 
+    .tenant-card-image {
+        width: 100%;
+        min-width: 0;
+        height: 220px;
+    }
+
+    .tenant-card-body {
+        padding: 1.4rem;
+    }
+
+    /* Events */
     .event-date-block {
         width: 100%;
         flex-direction: row;
@@ -1314,11 +1415,14 @@ p {
         font-size: 1.8rem;
     }
 
+    /* About */
     .founder-block {
         padding: var(--space-md);
         flex-direction: column;
+        border-radius: var(--radius-md);
     }
 
+    /* Newsletter */
     .newsletter-card {
         padding: var(--space-md) var(--space-sm);
     }
@@ -1327,6 +1431,7 @@ p {
         flex-direction: column;
     }
 
+    /* Footer */
     .footer-grid {
         flex-direction: column;
     }
@@ -1340,6 +1445,7 @@ p {
         justify-content: center;
     }
 
+    /* Scroll-top */
     .scroll-top {
         width: 36px;
         height: 36px;
