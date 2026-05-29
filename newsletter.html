@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Subscribe to the FontDale newsletter for exclusive event previews, curated offers, and lifestyle updates delivered to your inbox.">
+    <title>Newsletter | FontDale</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="page-body">
+
+    <header class="site-header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="site-logo" aria-label="FontDale Home">Font<span>Dale</span></a>
+                <nav aria-label="Primary Navigation">
+                    <ul class="nav-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="directory.html">Directory</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="newsletter.html">Newsletter</a></li>
+                    </ul>
+                </nav>
+                <button id="nav-toggle" class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false">
+                    <i id="nav-toggle-icon" class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <nav id="nav-mobile" class="nav-mobile" aria-label="Mobile Navigation">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="directory.html">Directory</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <section class="page-banner" aria-label="Page Banner">
+            <div class="page-banner-content container">
+                <p class="label-overline">Stay Informed</p>
+                <h1>Newsletter</h1>
+                <p>Subscribe to receive exclusive offers, event invitations, and curated lifestyle updates from
+                    FontDale.</p>
+            </div>
+        </section>
+
+        <section class="section newsletter-section" id="newsletter" aria-labelledby="newsletter-heading">
+            <div class="container">
+
+                <div class="newsletter-card">
+
+                    <h2 id="newsletter-heading">Subscribe to Our Newsletter</h2>
+                    <p>
+                        Join the FontDale inner circle. Fill in the form below to receive
+                        curated updates tailored to your interests, delivered with the same
+                        care and elegance you experience at FontDale.
+                    </p>
+
+                    <form id="newsletter-form" action="#" method="post" novalidate>
+
+                        <div class="form-group">
+                            <label for="field-name">
+                                Full Name
+                                <span class="req" aria-label="required">*</span>
+                            </label>
+                            <input type="text" id="field-name" name="name" placeholder="e.g. Budi Santoso"
+                                autocomplete="name">
+                            <span class="form-error" id="error-name" role="alert" aria-live="polite"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="field-email">
+                                Email Address
+                                <span class="req" aria-label="required">*</span>
+                            </label>
+                            <input type="email" id="field-email" name="email" placeholder="e.g. budi@example.com"
+                                autocomplete="email">
+                            <span class="form-error" id="error-email" role="alert" aria-live="polite"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="field-phone">
+                                Phone Number
+                                <span class="req" aria-label="required">*</span>
+                            </label>
+                            <input type="text" id="field-phone" name="phone" placeholder="e.g. +62 812 3456 7890"
+                                autocomplete="tel" maxlength="16">
+                            <span class="form-error" id="error-phone" role="alert" aria-live="polite"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="field-topic">
+                                Topic of Interest
+                                <span class="req" aria-label="required">*</span>
+                            </label>
+                            <select id="field-topic" name="topic">
+                                <option value="" disabled selected>-- Select a Topic --</option>
+                                <option value="fashion">Fashion and Style</option>
+                                <option value="dining">Dining and Culinary</option>
+                                <option value="events">Events and Experiences</option>
+                                <option value="wellness">Wellness and Beauty</option>
+                                <option value="lifestyle">Lifestyle and Home</option>
+                                <option value="offers">Exclusive Offers and Promotions</option>
+                                <option value="all">All of the Above</option>
+                            </select>
+                            <span class="form-error" id="error-topic" role="alert" aria-live="polite"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>
+                                Update Frequency
+                                <span class="req" aria-label="required">*</span>
+                            </label>
+                            <p class="form-hint">How often would you like to hear from us?</p>
+
+                            <div class="radio-group" id="radio-group-frequency">
+
+                                <label class="radio-option" for="freq-weekly">
+                                    <input type="radio" id="freq-weekly" name="frequency" value="weekly">
+                                    Weekly
+                                </label>
+
+                                <label class="radio-option" for="freq-biweekly">
+                                    <input type="radio" id="freq-biweekly" name="frequency" value="biweekly">
+                                    Bi-Weekly
+                                </label>
+
+                                <label class="radio-option" for="freq-monthly">
+                                    <input type="radio" id="freq-monthly" name="frequency" value="monthly">
+                                    Monthly
+                                </label>
+
+                                <label class="radio-option" for="freq-rarely">
+                                    <input type="radio" id="freq-rarely" name="frequency" value="rarely">
+                                    Special Occasions Only
+                                </label>
+
+                            </div>
+
+                            <span class="form-error" id="error-frequency" role="alert" aria-live="polite"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn--full" id="btn-newsletter-submit">
+                            Subscribe to FontDale
+                        </button>
+
+                        <div class="form-success" id="form-success-msg" role="status" aria-live="polite">
+                            <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                            <p>
+                                Thank you for subscribing to FontDale. Your preferences
+                                have been saved and you will receive your first update shortly.
+                                Welcome to the inner circle.
+                            </p>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section class="section" id="newsletter-benefits" aria-labelledby="benefits-heading">
+            <div class="container">
+
+                <div class="section-header">
+                    <p class="label-overline">Subscriber Benefits</p>
+                    <h2 id="benefits-heading">What You Will Receive</h2>
+                    <span class="section-divider" aria-hidden="true"></span>
+                </div>
+
+                <div class="features-grid">
+
+                    <div class="feature-card">
+                        <i class="fa-solid fa-ticket" aria-hidden="true"></i>
+                        <h3>Early Event Access</h3>
+                        <p>
+                            Be the first to receive invitations to exclusive FontDale events,
+                            private previews, and limited-seat experiences before they open
+                            to the general public.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <i class="fa-solid fa-tag" aria-hidden="true"></i>
+                        <h3>Curated Offers</h3>
+                        <p>
+                            Unlock subscriber-only promotions and special offers from
+                            FontDale tenants, curated to match the topics you selected
+                            at sign-up.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <i class="fa-solid fa-newspaper" aria-hidden="true"></i>
+                        <h3>Lifestyle Editorials</h3>
+                        <p>
+                            Receive beautifully written lifestyle content from style guides
+                            and restaurant reviews to wellness features and design insights,
+                            crafted by the FontDale editorial team.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+
+                <div class="footer-col">
+                    <div class="footer-logo">Font<span>Dale</span></div>
+                    <p class="footer-tagline">
+                        A premium lifestyle destination at Arcadia Circle.
+                        Connecting North Gallery and South Pavilion
+                        via the iconic Lumen Skywalk.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="directory.html">Store Directory</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="newsletter.html">Newsletter</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col footer-info">
+                    <h4>Visit Us</h4>
+                    <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Arcadia Circle, Lumen District</p>
+                    <p><i class="fa-regular fa-clock" aria-hidden="true"></i>Mon to Fri: 10AM - 10PM</p>
+                    <p><i class="fa-regular fa-clock" aria-hidden="true"></i>Sat to Sun: 9AM - 11PM</p>
+                    <p><i class="fa-solid fa-phone" aria-hidden="true"></i>+62 800 366 8253</p>
+                    <p><i class="fa-solid fa-envelope" aria-hidden="true"></i>concierge@fontdale.com</p>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>Copyright 2025 FontDale. All rights reserved.</p>
+                <div class="footer-social" aria-label="Social Media Links">
+                    <a href="#" aria-label="FontDale on Instagram"><i class="fa-brands fa-instagram"
+                            aria-hidden="true"></i></a>
+                    <a href="#" aria-label="FontDale on Facebook"><i class="fa-brands fa-facebook-f"
+                            aria-hidden="true"></i></a>
+                    <a href="#" aria-label="FontDale on X (Twitter)"><i class="fa-brands fa-x-twitter"
+                            aria-hidden="true"></i></a>
+                    <a href="#" aria-label="FontDale on Pinterest"><i class="fa-brands fa-pinterest-p"
+                            aria-hidden="true"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <button id="scroll-top-btn" class="scroll-top" aria-label="Scroll back to top">
+        <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
+    </button>
+
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
