@@ -11,19 +11,13 @@
     margin-bottom: 0.6rem;
 }
 
-/* ============================================================
-   VARIANT B — DESIGN TOKENS
-   Changes from Variant A:
-   · Gold accent → darker bronze / rose-gold
-   · Footer background → near-black charcoal
-   · Rounded corners on cards, inputs, buttons
-   ============================================================ */
+
 :root {
     --color-white: #FFFFFF;
     --color-off-white: #F7F5F2;
     --color-surface: #EEE9E2;
 
-    /* Bronze / Rose-Gold palette (was gold #C9A84C) */
+
     --color-gold: #956B3A;
     --color-gold-light: #D4A574;
     --color-gold-dark: #6B4524;
@@ -33,7 +27,7 @@
     --color-mid: #6B6560;
     --color-border: #DDD8CE;
 
-    /* Charcoal footer (was #1A1814, now near-black) */
+
     --color-footer-bg: #0C0B09;
 
     --font-display: 'Cormorant Garamond', Georgia, serif;
@@ -49,17 +43,15 @@
     --transition-mid: 0.35s ease;
 
     --shadow-card: 0 4px 24px rgba(26, 24, 20, 0.10);
-    --shadow-nav:  0 2px 20px rgba(26, 24, 20, 0.06);
+    --shadow-nav: 0 2px 20px rgba(26, 24, 20, 0.06);
 
-    /* Radius tokens (Variant A had none — all sharp) */
+
     --radius-sm: 4px;
     --radius-md: 8px;
     --radius-lg: 12px;
 }
 
-/* ============================================================
-   RESET
-   ============================================================ */
+
 *,
 *::before,
 *::after {
@@ -109,10 +101,21 @@ h5 {
     color: var(--color-dark);
 }
 
-h1 { font-size: clamp(2.4rem, 6vw, 4.5rem); }
-h2 { font-size: clamp(1.8rem, 4vw, 3rem); }
-h3 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); }
-h4 { font-size: 1.2rem; }
+h1 {
+    font-size: clamp(2.4rem, 6vw, 4.5rem);
+}
+
+h2 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+h3 {
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+}
+
+h4 {
+    font-size: 1.2rem;
+}
 
 p {
     font-size: 1rem;
@@ -120,9 +123,7 @@ p {
     line-height: 1.8;
 }
 
-/* ============================================================
-   TYPOGRAPHY UTILITIES
-   ============================================================ */
+
 .text-gold {
     color: var(--color-gold);
 }
@@ -158,9 +159,7 @@ p {
     margin: var(--space-sm) auto 0;
 }
 
-/* ============================================================
-   LAYOUT
-   ============================================================ */
+
 .container {
     width: 90%;
     max-width: 1200px;
@@ -181,9 +180,7 @@ p {
     background-color: var(--color-surface);
 }
 
-/* ============================================================
-   BUTTONS — Variant B: Outline by default, fills on hover
-   ============================================================ */
+
 .btn {
     display: inline-block;
     font-family: var(--font-body);
@@ -198,8 +195,8 @@ p {
     border-radius: var(--radius-sm);
     cursor: pointer;
     transition: background-color var(--transition-fast),
-                color var(--transition-fast),
-                border-color var(--transition-fast);
+        color var(--transition-fast),
+        border-color var(--transition-fast);
 }
 
 .btn:hover,
@@ -210,8 +207,7 @@ p {
     outline: none;
 }
 
-/* --outline is now functionally identical to default btn in Variant B,
-   kept for backward-compatibility with any existing markup */
+
 .btn--outline {
     background-color: transparent;
     color: var(--color-gold);
@@ -223,7 +219,7 @@ p {
     color: var(--color-white);
 }
 
-/* Light variant used on dark backgrounds */
+
 .btn--light {
     border-color: rgba(255, 255, 255, 0.7);
     background-color: transparent;
@@ -237,9 +233,7 @@ p {
     color: var(--color-dark);
 }
 
-/* ============================================================
-   NAVIGATION
-   ============================================================ */
+
 .site-header {
     position: fixed;
     top: 0;
@@ -363,9 +357,7 @@ p {
     padding-top: 72px;
 }
 
-/* ============================================================
-   FOOTER — Variant B: near-black charcoal background
-   ============================================================ */
+
 .site-footer {
     background-color: var(--color-footer-bg);
     color: rgba(255, 255, 255, 0.6);
@@ -480,9 +472,7 @@ p {
     color: var(--color-gold);
 }
 
-/* ============================================================
-   PAGE BANNER
-   ============================================================ */
+
 .page-banner {
     background-color: var(--color-dark);
     background-image: url('../images/pattern.png');
@@ -517,9 +507,7 @@ p {
     margin: var(--space-sm) auto 0;
 }
 
-/* ============================================================
-   HERO
-   ============================================================ */
+
 .hero {
     position: relative;
     min-height: 100vh;
@@ -581,9 +569,7 @@ p {
     gap: 1rem;
 }
 
-/* ============================================================
-   INFO STRIP
-   ============================================================ */
+
 .info-strip {
     background-color: var(--color-dark-soft);
     padding: var(--space-md) 0;
@@ -628,9 +614,7 @@ p {
     line-height: 1.6;
 }
 
-/* ============================================================
-   INTRO SECTION
-   ============================================================ */
+
 .intro-grid {
     display: flex;
     flex-wrap: wrap;
@@ -675,9 +659,7 @@ p {
     z-index: -1;
 }
 
-/* ============================================================
-   FEATURE CARDS — Variant B: rounded corners
-   ============================================================ */
+
 .features-grid {
     display: flex;
     flex-wrap: wrap;
@@ -716,9 +698,7 @@ p {
     font-size: 0.88rem;
 }
 
-/* ============================================================
-   TENANT CARDS — Variant B: HORIZONTAL layout (image left, text right)
-   ============================================================ */
+
 .tenant-grid {
     display: flex;
     flex-direction: column;
@@ -804,9 +784,7 @@ p {
     font-size: 0.75rem;
 }
 
-/* ============================================================
-   EVENTS
-   ============================================================ */
+
 .events-list {
     display: flex;
     flex-direction: column;
@@ -920,9 +898,7 @@ p {
     font-size: 0.75rem;
 }
 
-/* ============================================================
-   ABOUT PAGE
-   ============================================================ */
+
 .about-intro {
     display: flex;
     flex-wrap: wrap;
@@ -954,7 +930,7 @@ p {
     border-radius: var(--radius-md);
 }
 
-/* TIMELINE */
+
 .timeline {
     position: relative;
     max-width: 720px;
@@ -1005,7 +981,7 @@ p {
     font-size: 0.9rem;
 }
 
-/* VALUES */
+
 .values-grid {
     display: flex;
     flex-wrap: wrap;
@@ -1034,7 +1010,7 @@ p {
     font-size: 0.85rem;
 }
 
-/* FOUNDER BLOCK */
+
 .founder-block {
     display: flex;
     flex-wrap: wrap;
@@ -1096,9 +1072,7 @@ p {
     line-height: 1.7;
 }
 
-/* ============================================================
-   NEWSLETTER PAGE — Variant B: rounded card
-   ============================================================ */
+
 .newsletter-section {
     background-color: var(--color-off-white);
 }
@@ -1126,15 +1100,13 @@ p {
     margin-bottom: 0.5rem;
 }
 
-.newsletter-card > p {
+.newsletter-card>p {
     font-size: 0.92rem;
     color: var(--color-mid);
     margin-bottom: var(--space-md);
 }
 
-/* ============================================================
-   FORMS — Variant B: rounded inputs
-   ============================================================ */
+
 .form-group {
     margin-bottom: 1.4rem;
     position: relative;
@@ -1174,7 +1146,7 @@ p {
     appearance: none;
 }
 
-/* Updated SVG arrow color to match new bronze #956B3A */
+
 .form-group select {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23956B3A' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
@@ -1203,7 +1175,7 @@ p {
     display: block;
 }
 
-/* TOPIC RADIO BUTTONS */
+
 .radio-group {
     display: flex;
     flex-wrap: wrap;
@@ -1264,7 +1236,7 @@ p {
     padding: 1rem;
 }
 
-/* FORM SUCCESS */
+
 .form-success {
     display: none;
     background-color: #f0faf5;
@@ -1291,9 +1263,7 @@ p {
     display: block;
 }
 
-/* ============================================================
-   SCROLL-TO-TOP BUTTON — Variant B: rounded
-   ============================================================ */
+
 .scroll-top {
     position: fixed;
     bottom: 2rem;
@@ -1324,14 +1294,19 @@ p {
     background-color: var(--color-gold-dark);
 }
 
-/* ============================================================
-   RESPONSIVE — max-width 540px
-   Tenant cards restack to vertical on mobile.
-   ============================================================ */
+
 @media screen and (max-width: 540px) {
-    h1 { font-size: 2.2rem; }
-    h2 { font-size: 1.6rem; }
-    h3 { font-size: 1.15rem; }
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    h3 {
+        font-size: 1.15rem;
+    }
 
     .nav-list {
         display: none;
@@ -1388,7 +1363,7 @@ p {
         text-align: center;
     }
 
-    /* --- Tenant cards: restack image on top, text below on mobile --- */
+
     .tenant-card {
         flex-direction: column;
     }
@@ -1403,7 +1378,7 @@ p {
         padding: 1.4rem;
     }
 
-    /* Events */
+
     .event-date-block {
         width: 100%;
         flex-direction: row;
@@ -1415,14 +1390,14 @@ p {
         font-size: 1.8rem;
     }
 
-    /* About */
+
     .founder-block {
         padding: var(--space-md);
         flex-direction: column;
         border-radius: var(--radius-md);
     }
 
-    /* Newsletter */
+
     .newsletter-card {
         padding: var(--space-md) var(--space-sm);
     }
@@ -1431,7 +1406,7 @@ p {
         flex-direction: column;
     }
 
-    /* Footer */
+
     .footer-grid {
         flex-direction: column;
     }
@@ -1445,7 +1420,7 @@ p {
         justify-content: center;
     }
 
-    /* Scroll-top */
+
     .scroll-top {
         width: 36px;
         height: 36px;
